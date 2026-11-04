@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jayakarta RP - Connect</title>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#1b1612;color:#f3e6cf;font-family:Georgia,serif;text-align:center}
+  .box{padding:32px;max-width:420px}
+  code{display:block;margin:16px 0;padding:12px;background:#2a2119;border:1px solid #6b5333;border-radius:6px;word-break:break-all}
+  button,a.btn{display:inline-block;margin:6px;padding:12px 22px;border:0;border-radius:6px;background:#b8863b;color:#1b1612;font-size:16px;font-weight:bold;cursor:pointer;text-decoration:none}
+  p{opacity:.8;font-size:14px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>JAYAKARTA RP INDONESIA</h2>
+  <code id="cmd">connect jayakartarp.ptun.me:18225</code>
+  <button id="copy">Salin</button>
+  <a class="btn" href="redm://connect/jayakartarp.ptun.me:18225">Buka RedM</a>
+  <p id="msg">Tekan F8 di game, lalu paste (Ctrl+V) dan Enter.</p>
+</div>
+<script>
+const text = document.getElementById('cmd').textContent;
+const msg = document.getElementById('msg');
+async function copy(){
+  try { await navigator.clipboard.writeText(text); }
+  catch(e){
+    const t=document.createElement('textarea'); t.value=text; document.body.appendChild(t);
+    t.select(); document.execCommand('copy'); t.remove();
+  }
+  msg.textContent = 'Tersalin! Tekan F8 di game, paste (Ctrl+V), lalu Enter.';
+}
+document.getElementById('copy').addEventListener('click', copy);
+copy().catch(()=>{});
+// langsung buka RedM & connect
+setTimeout(()=>{ location.href='redm://connect/jayakartarp.ptun.me:18225'; }, 400);
+</script>
+</body>
+</html>
